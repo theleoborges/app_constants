@@ -19,7 +19,7 @@ One common approach is to define these constants in your environment files:
     
 But in my experience constants end up being scattered all around, people don't know where to look for them and much less where new ones should be defined.
 
-AppConstants provides a clean way to handle this need. Just run the plugin's generator...
+AppConstants is a very simple plugin that provides a clean way to handle this need. Just run the plugin's generator...
 
   $ script/generate app_constants
     exists  config
