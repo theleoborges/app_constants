@@ -15,11 +15,11 @@ One common approach is to define these constants in your environment files:
   end
   
   #and then in development.rb
-    ACTIVATION_URL = "http://dev.example.com/activate"
+    ACTIVATION_URL = "http://localhost:3000/activate"
     
-After that, constants end up being scattered all around, people don't know where to look for them and much less where new ones should be defined.
+But in my experience constants end up being scattered all around, people don't know where to look for them and much less where new ones should be defined.
 
-AppConstants provides a clean way to handle this need. First, use the plugin's generator:
+AppConstants provides a clean way to handle this need. Just run the plugin's generator...
 
   $ script/generate app_constants
     exists  config
@@ -27,7 +27,7 @@ AppConstants provides a clean way to handle this need. First, use the plugin's g
     exists  config/initializers
     create  config/initializers/load_app_constants.rb
     
-Use the constants.yml to define your own constants and the load_app_constants.rb initializer to customize the plugin. e.g: Change the default location for the constants.yml file.
+... and use the constants.yml to define your own constants and the load_app_constants.rb initializer to customize the plugin. e.g: Change the default location for the constants.yml file.
 
 == Example
 
