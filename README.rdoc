@@ -46,7 +46,7 @@ Then you can use the AppConstant class to retrieve your constants anywhere in yo
 
   # somewhere in the activation email view
   Visit this url to activate your account:
-    <%= "#{AppConstants.activation_url}/#{actiavtion_code}" %>
+    <%= "#{AppConstants.activation_url}/#{activation_code}" %>
 
     
 Copyright (c) 2010 {Leonardo Borges}[http://www.leonardoborges.com], released under the MIT license
