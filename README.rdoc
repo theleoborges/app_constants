@@ -21,7 +21,7 @@ But in my experience constants end up being scattered all around, people don't k
 
 AppConstants is a very simple plugin that provides a clean way to handle this need. Go ahead, install the plugin and run generator:
 
-  $ scrip/plugin install git@github.com:leonardoborges/app_constants.git
+  $ scrip/plugin install git://github.com/leonardoborges/app_constants.git
 
   $ script/generate app_constants
     exists  config
