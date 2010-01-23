@@ -19,7 +19,9 @@ One common approach is to define these constants in your environment files:
     
 But in my experience constants end up being scattered all around, people don't know where to look for them and much less where new ones should be defined.
 
-AppConstants is a very simple plugin that provides a clean way to handle this need. Just run the plugin's generator...
+AppConstants is a very simple plugin that provides a clean way to handle this need. Go ahead, install the plugin and run generator:
+
+  $ scrip/plugin install git@github.com:leonardoborges/app_constants.git
 
   $ script/generate app_constants
     exists  config
@@ -27,7 +29,7 @@ AppConstants is a very simple plugin that provides a clean way to handle this ne
     exists  config/initializers
     create  config/initializers/load_app_constants.rb
     
-... and use the constants.yml to define your own constants and the load_app_constants.rb initializer to customize the plugin. e.g: Change the default location for the constants.yml file.
+Now use the constants.yml file to define your own constants and the load_app_constants.rb initializer to customize the plugin. e.g: Change the default location for the constants.yml file.
 
 == Example
 
