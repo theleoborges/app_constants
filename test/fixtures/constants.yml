@@ -1,0 +1,6 @@
+development: &default
+  public_url:  "development.myawesomeapp.com"
+  app_name: "Master of awesomeness"
+production:
+  <<: *default
+  public_url:  "www.myawesomeapp.com"

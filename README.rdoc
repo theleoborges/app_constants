@@ -1,0 +1,52 @@
+= AppConstants
+
+It's funny how every Rails application I work on ends up needing some sort of per-environment global constants.
+
+Examples may include the application url - It might be used in account activation emails and thus should be different between the development and production environments.
+
+Or perhaps your application depends on external services that, depending on the environment, are available in different URIs.
+
+One common approach is to define these constants in your environment files:
+
+  # in environment.rb
+  Rails::Initializer.run do |config|
+    ...
+    ACTIVATION_URL = "http://www.example.com/activate"
+  end
+  
+  #and then in development.rb
+    ACTIVATION_URL = "http://dev.example.com/activate"
+    
+After that, constants end up being scattered all around, people don't know where to look for them and much less where new ones should be defined.
+
+AppConstants provides a clean way to handle this need. First, use the plugin's generator:
+
+  $ script/generate app_constants
+    exists  config
+    create  config/constants.yml
+    exists  config/initializers
+    create  config/initializers/load_app_constants.rb
+    
+Use the constants.yml to define your own constants and the load_app_constants.rb initializer to customize the plugin. e.g: Change the default location for the constants.yml file.
+
+== Example
+
+If you have a constants.yml file that looks like this:
+
+  # Enter your per-environment constants below
+
+  development: &default
+    activation_url:  "http://localhost:3000/activate"
+
+  production:
+    <<: *default
+    activation_url:  "http://www.example.com/activate"
+    
+Then you can use the AppConstant class to retrieve your constants anywhere in your app:
+
+  # somewhere in the activation email view
+  Visit this url to activate your account:
+    <%= "#{AppConstants.activation_url}/#{actiavtion_code}" %>
+
+    
+Copyright (c) 2010 {Leonardo Borges}[http://www.leonardoborges.com], released under the MIT license

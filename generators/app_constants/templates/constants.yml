@@ -1,0 +1,12 @@
+# Enter your per-environment constants below
+
+development: &default
+  constant1:  "value1"
+  constant2:  "value2"
+
+production:
+  <<: *default
+  constant1:  "overriden value1"
+  
+test:
+  <<: *default
