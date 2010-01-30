@@ -16,4 +16,15 @@ class AppConstantsTest < Test::Unit::TestCase
     AppConstants.load!
     assert_nil AppConstants.public_url
   end
+  
+  def test_should_access_nested_constants
+    AppConstants.config_path = "#{File.dirname(__FILE__)}/fixtures/nested_constants.yml"
+    AppConstants.environment = "development"
+    AppConstants.load!
+        
+    assert_equal "development.myawesomeapp.com", AppConstants.public_url
+    assert_equal "Master of awesomeness", AppConstants.app_name
+    assert_equal "admin@myapp.com", AppConstants.email.admin
+    assert_equal "support@myapp.com", AppConstants.email.support
+  end  
 end

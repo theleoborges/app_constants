@@ -1,0 +1,9 @@
+development: &default
+  public_url:  "development.myawesomeapp.com"
+  app_name: "Master of awesomeness"
+  email:
+    admin: "admin@myapp.com"
+    support: "support@myapp.com"    
+production:
+  <<: *default
+  public_url:  "www.myawesomeapp.com"

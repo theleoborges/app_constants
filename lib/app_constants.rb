@@ -11,7 +11,11 @@ class AppConstants
   end  
   
   def self.method_missing(method, *args)
-    @@instance.constants_hash[method.to_s]
+    @@instance.send(method).is_a?(Hash) ? AppConstants.new(@@instance.constants_hash[method.to_s]) : @@instance.send(method)
+  end
+  
+  def method_missing(method, *args)
+    constants_hash[method.to_s]
   end
   
   def self.load!
