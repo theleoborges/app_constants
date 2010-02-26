@@ -1,3 +1,5 @@
+=== Important Note: This is a rails 2.3.x compatibility branch
+
 = AppConstants
 
 It's funny how every Rails application I work on ends up needing some sort of per-environment global constants.
