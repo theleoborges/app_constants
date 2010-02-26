@@ -1,6 +1,6 @@
 class AppConstants
-  @@config_path = "#{Rails.root}/config/constants.yml"
-  @@environment = Rails.env
+  @@config_path = File.expand_path(File.dirname(__FILE__) + '/../../../../config/constants.yml')
+  @@environment = Object.const_defined?(:Rails) ? Rails.env : 'test'
   
   def self.config_path=(path)
     @@config_path = path

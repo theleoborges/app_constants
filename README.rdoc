@@ -1,3 +1,7 @@
+=== Note for Rails 2.3.x users
+Check out the branch rails_2_3_x
+Master is Rails 3 only
+
 = AppConstants
 
 It's funny how every Rails application I work on ends up needing some sort of per-environment global constants.
