@@ -1,6 +1,7 @@
 === Note for Rails 2.3.x users
-Check out the branch rails_2_3_x
-Master is Rails 3 only
+Check out the branch rails_2_3_x.
+
+Master is Rails 3 compatible only.
 
 = AppConstants
 
@@ -25,9 +26,9 @@ But in my experience constants end up being scattered all around, people don't k
 
 AppConstants is a very simple plugin that provides a clean way to handle this need. Go ahead, install the plugin and run generator:
 
-  $ script/plugin install git://github.com/leonardoborges/app_constants.git
+  $ rails plugin install git://github.com/leonardoborges/app_constants.git
 
-  $ script/generate app_constants
+  $ rails generate app_constants
     exists  config
     create  config/constants.yml
     exists  config/initializers
