@@ -26,5 +26,13 @@ class AppConstantsTest < Test::Unit::TestCase
     assert_equal "Master of awesomeness", AppConstants.app_name
     assert_equal "admin@myapp.com", AppConstants.email.admin
     assert_equal "support@myapp.com", AppConstants.email.support
-  end  
+  end
+  
+  def test_should_process_embedded_code
+    AppConstants.config_path = "#{File.dirname(__FILE__)}/fixtures/template_constants.yml"
+    AppConstants.environment = "development"
+    AppConstants.load!
+        
+    assert_equal 1048576, AppConstants.max_upload_in_bytes
+  end    
 end

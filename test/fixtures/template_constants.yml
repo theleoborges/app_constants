@@ -1,0 +1,4 @@
+development: &default
+  max_upload_in_bytes:  <%= 1 * 1024 * 1024 %>
+production:
+  <<: *default

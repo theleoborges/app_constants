@@ -44,6 +44,7 @@ If you have a constants.yml file that looks like this:
 
   development: &default
     activation_url:  "http://localhost:3000/activate"
+		max_upload_in_bytes: <%= 1.megabyte %>
 
   production:
     <<: *default
@@ -55,5 +56,9 @@ Then you can use the AppConstant class to retrieve your constants anywhere in yo
   Visit this url to activate your account:
     <%= "#{AppConstants.activation_url}/#{activation_code}" %>
 
+Notice how I used embedded ruby code in the second constant. It works just fine:
+
+  # somewhere in your upload handling code
+  max_size = AppConstants.max_upload_in_bytes # 1048576
     
 Copyright (c) 2010 {Leonardo Borges}[http://www.leonardoborges.com], released under the MIT license

@@ -1,3 +1,5 @@
+require 'erb'
+
 class AppConstants
   @@config_path = File.expand_path(File.dirname(__FILE__) + '/../../../../config/constants.yml')
   @@environment = Object.const_defined?(:Rails) ? Rails.env : 'test'
@@ -19,10 +21,15 @@ class AppConstants
   end
   
   def self.load!
-    constants_config = YAML::load(File.open(@@config_path))
+    constants_config = YAML::load(pre_process_constants_file)
     constants_hash = constants_config[@@environment] || {}
     @@instance = AppConstants.new(constants_hash)
   end  
+  
+  def self.pre_process_constants_file
+    template = File.open(@@config_path).read
+    ERB.new(template).result
+  end
   
   attr_reader :constants_hash
   def initialize(constants_hash)
