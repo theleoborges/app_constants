@@ -44,7 +44,7 @@ If you have a constants.yml file that looks like this:
 
   development: &default
     activation_url:  "http://localhost:3000/activate"
-		max_upload_in_bytes: <%= 1.megabyte %>
+    max_upload_in_bytes: <%= 1.megabyte %>
 
   production:
     <<: *default
