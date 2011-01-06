@@ -61,4 +61,4 @@ Notice how I used embedded ruby code in the second constant. It works just fine:
   # somewhere in your upload handling code
   max_size = AppConstants.max_upload_in_bytes # 1048576
     
-Copyright (c) 2010 {Leonardo Borges}[http://www.leonardoborges.com], released under the MIT license
+Copyright (c) 2010-2011 {Leonardo Borges}[http://www.leonardoborges.com], released under the MIT license
