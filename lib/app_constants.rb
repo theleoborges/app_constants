@@ -2,7 +2,7 @@ require 'yaml'
 require 'erb'
 
 class AppConstants
-  @@config_path = File.expand_path(File.dirname(__FILE__) + '/../../../../config/constants.yml')
+  @@config_path = Object.const_defined?(:Rails) ? "#{Rails.root}/config/constants.yml" : nil
   @@environment = Object.const_defined?(:Rails) ? Rails.env : 'test'
   
   def self.config_path=(path)
@@ -22,6 +22,7 @@ class AppConstants
   end
   
   def self.load!
+    raise ArgumentError.new("No config file path specified. Use 'AppConstants.config_path = PATH' to set it up") if @@config_path.nil?
     constants_config = YAML::load(pre_process_constants_file)
     constants_hash = constants_config[@@environment] || {}
     @@instance = AppConstants.new(constants_hash)

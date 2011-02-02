@@ -1,3 +1,4 @@
 log/
 .bundle/
 .idea/
+pkg/

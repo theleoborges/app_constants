@@ -11,6 +11,7 @@ end
 require 'rake'
 require 'rake/rdoctask'
 require 'rspec/core/rake_task'
+require 'jeweler'
 require 'jeweler/tasks'
 require 'jeweler/specification'
 require 'jeweler/rubygems_dot_org_tasks'
@@ -32,7 +33,7 @@ Jeweler::Tasks.new do |gem|
   gem.homepage = "http://github.com/leonardoborges/app_constants"
   gem.license = "MIT"
   gem.summary = %Q{A clean and simple way to manage your application's per-environment constants}
-  gem.description = %Q{TODO: A clean and simple way to manage your application's per-environment constants}
+  gem.description = %Q{A clean and simple way to manage your application's per-environment constants}
   gem.email = "leonardoborges.rj@gmail.com"
   gem.authors = ["Leonardo Borges"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,

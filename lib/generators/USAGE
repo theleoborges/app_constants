@@ -2,7 +2,7 @@ Description:
     Creates the default constants.yml file the the load_app_constants.rb initializer 
 
 Example:
-    ./script/generate app_constants
+    rails generate app_constants
 
     This will create:
         config/constants.yml - constants definition file

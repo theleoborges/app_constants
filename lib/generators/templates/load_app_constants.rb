@@ -1,4 +1,4 @@
 # Loads the default configuration file located under RAILS_ROOT/config/constants.yml
-# To change the default location user:
-# AppConstants.config_path = "/wherever/you/want"
+# Change the default location by modifying the following line:
+AppConstants.config_path = "#{Rails.root}/config/constants.yml"
 AppConstants.load!
