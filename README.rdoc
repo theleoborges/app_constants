@@ -24,7 +24,27 @@ One common approach is to define these constants in your environment files:
     
 But in my experience constants end up being scattered all around, people don't know where to look for them and much less where new ones should be defined.
 
-AppConstants is a very simple plugin that provides a clean way to handle this need. Go ahead, install the plugin and run generator:
+AppConstants can be used as a gem or as a plugin. It provides a clean way to handle this need.
+
+
+== Installing AppConstants as a gem
+
+Add it to your Gemfile:
+
+  gem 'app_constants'
+
+Then bundle install and run the generator:
+
+  $ bundle install
+  $ rails generate app_constants
+    exists  config
+    create  config/constants.yml
+    exists  config/initializers
+    create  config/initializers/load_app_constants.rb
+
+== Installing AppConstants as a gem
+
+Just install the plugin as you normally would and run the generator
 
   $ rails plugin install git://github.com/leonardoborges/app_constants.git
 
