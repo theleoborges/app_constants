@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{app_constants}
-  s.version = "1.0.0"
+  s.version = "1.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Leonardo Borges"]
@@ -22,11 +22,13 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "app_constants.gemspec",
     "init.rb",
     "install.rb",
     "lib/app_constants.rb",
     "lib/generators/USAGE",
     "lib/generators/app_constants_generator.rb",
+    "lib/generators/templates/README",
     "lib/generators/templates/constants.yml",
     "lib/generators/templates/load_app_constants.rb",
     "test/app_constants_spec.rb",
