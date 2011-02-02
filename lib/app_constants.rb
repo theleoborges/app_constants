@@ -16,9 +16,9 @@ class AppConstants
   def self.method_missing(method, *args)
     @@instance.send(method).is_a?(Hash) ? AppConstants.new(@@instance.constants_hash[method.to_s]) : @@instance.send(method)
   end
-  
+
   def method_missing(method, *args)
-    constants_hash[method.to_s].nil? ? "" : constants_hash[method.to_s] 
+    constants_hash[method.to_s].nil? ? "" : constants_hash[method.to_s].freeze 
   end
   
   def self.load!

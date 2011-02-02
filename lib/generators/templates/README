@@ -1,0 +1,15 @@
+===============================================================================
+
+AppConstants is now installed! A couple of things you should know:
+
+  1. You now have a file under Rails.root/config called constants.yml
+
+     Use this file to add you environment specific constants
+
+  2. The initializer lives under Rails.root/config/initializers and is called load_app_constants.rb
+
+     This is where the gem gets set up and where you can customize the location of the constants.yml file
+
+  3. Enjoy!
+
+===============================================================================

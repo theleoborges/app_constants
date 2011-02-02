@@ -10,6 +10,16 @@ describe "AppConstants" do
     AppConstants.app_name.should == "Master of awesomeness"
   end
 
+  it "should raise a RuntiemError if trying to modify constants" do
+    AppConstants.config_path = "#{File.dirname(__FILE__)}/fixtures/constants.yml"
+    AppConstants.environment = "development"
+    AppConstants.load!
+
+    AppConstants.public_url.should == "development.myawesomeapp.com"
+
+    expect { AppConstants.public_url << "trying something nasty" }.to raise_error(RuntimeError)
+  end
+
   it "should return nil for non-existing environments" do
     AppConstants.config_path = "#{File.dirname(__FILE__)}/fixtures/constants.yml"
     AppConstants.environment = "invalid"
