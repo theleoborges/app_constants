@@ -5,7 +5,7 @@ Master is Rails 3 compatible only.
 
 = AppConstants
 
-It's funny how every Rails application I work on ends up needing some sort of per-environment global constants.
+It's funny how every (non)Rails application I work on ends up needing some sort of per-environment global constants.
 
 Examples may include the application url - It might be used in account activation emails and thus should be different between the development and production environments.
 
@@ -26,8 +26,9 @@ But in my experience constants end up being scattered all around, people don't k
 
 AppConstants can be used as a gem or as a plugin. It provides a clean way to handle this need.
 
+== Usage
 
-== Installing AppConstants as a gem
+=== Installing AppConstants as a gem
 
 Add it to your Gemfile:
 
@@ -43,7 +44,7 @@ Then bundle install and run the generator:
     exists  config/initializers
     create  config/initializers/load_app_constants.rb
 
-== Installing AppConstants as a plugin
+=== Installing AppConstants as a plugin
 
 Just install the plugin as you normally would and run the generator
 
@@ -56,6 +57,15 @@ Just install the plugin as you normally would and run the generator
     create  config/initializers/load_app_constants.rb
     
 Now use the constants.yml file to define your own constants and the load_app_constants.rb initializer to customize the plugin. e.g: Change the default location for the constants.yml file.
+
+=== Using AppConstants without Rails
+
+After installing the gem - either using bundler or otherwise - you'll be responsible for initializing it, like so:
+
+  #somewhere in your non-Rails app
+  AppConstants.config_path = "#{File.dirname(__FILE__)}/config/constants.yml"
+  AppConstants.environment = "development"
+  AppConstants.load!
 
 == Example
 
