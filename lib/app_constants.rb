@@ -1,3 +1,4 @@
+require 'yaml'
 require 'erb'
 
 class AppConstants
@@ -17,7 +18,7 @@ class AppConstants
   end
   
   def method_missing(method, *args)
-    constants_hash[method.to_s]
+    constants_hash[method.to_s].nil? ? "" : constants_hash[method.to_s] 
   end
   
   def self.load!

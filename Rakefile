@@ -1,16 +1,13 @@
 require 'rake'
-require 'rake/testtask'
 require 'rake/rdoctask'
+require 'rubygems'
+require 'spec/rake/spectask'
 
 desc 'Default: run unit tests.'
-task :default => :test
+task :default => :spec
 
-desc 'Test the app_constants plugin.'
-Rake::TestTask.new(:test) do |t|
-  t.libs << 'lib'
-  t.libs << 'test'
-  t.pattern = 'test/**/*_test.rb'
-  t.verbose = true
+Spec::Rake::SpecTask.new(:spec) do |t|
+  t.spec_files = Dir.glob('test/**/*_spec.rb')
 end
 
 desc 'Generate documentation for the app_constants plugin.'
