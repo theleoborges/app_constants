@@ -67,6 +67,10 @@ After installing the gem - either using bundler or otherwise - you'll be respons
   AppConstants.environment = "development"
   AppConstants.load!
 
+Optionally you can set raise_error_on_missing which will raise a runtime error 1) during load if the environment doesn't exist and 2) all other times if a constant doesn't exist:
+
+  AppConstants.raise_error_on_missing = true
+  
 == Example
 
 If you have a constants.yml file that looks like this:
