@@ -23,21 +23,31 @@ class AppConstants
   end
 
   def method_missing(method, *args)
-    unless constants_hash.keys.include?(method.to_s) || @@raise_error_on_missing == false
-      raise "Constant #{method.to_s} undefined in yml file. Options are: #{constants_hash.keys.join(", ")}" 
-    end
-    constants_hash[method.to_s].nil? ? "" : constants_hash[method.to_s].freeze 
+    fail_if_constant_missing(method.to_s)
+    constants_hash[method.to_s].nil? ? "" : constants_hash[method.to_s].freeze
   end
-  
+
+  def fail_if_constant_missing(constant)
+    unless constants_hash.keys.include?(constant) || @@raise_error_on_missing == false
+      raise "Constant #{constant} undefined in yml file. Options are: #{constants_hash.keys.join(", ")}"
+    end
+  end
+  private :fail_if_constant_missing
+
   def self.load!
     raise ArgumentError.new("No config file path specified. Use 'AppConstants.config_path = PATH' to set it up") if @@config_path.nil?
     constants_config = YAML::load(pre_process_constants_file)
-    unless constants_config.keys.include?(@@environment) || @@raise_error_on_missing == false
-      raise "Environment #{@@environment} not found in yml file.  Options are: #{constants_config.keys.join(", ")}"
-    end
+    fail_if_environment_missing(@@environment, constants_config)
     constants_hash = constants_config[@@environment] || {}
     @@instance = AppConstants.new(constants_hash)
-  end  
+  end
+
+  def self.fail_if_environment_missing(env, config)
+    unless config.keys.include?(env) || @@raise_error_on_missing == false
+      raise "Environment #{env} not found in yml file.  Options are: #{config.keys.join(", ")}"
+    end
+  end
+  private_class_method :fail_if_environment_missing
   
   def self.pre_process_constants_file
     template = File.open(@@config_path).read
