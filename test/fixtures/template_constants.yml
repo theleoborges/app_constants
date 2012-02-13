@@ -1,4 +1,14 @@
 development: &default
   max_upload_in_bytes:  <%= 1 * 1024 * 1024 %>
+  email:
+    default_sender: do-not-reply@test.com
+  delayed_jobs:
+    timeouts:
+      default: 300
+  very:
+    deep:
+      nesting:
+        level: true
+      
 production:
   <<: *default

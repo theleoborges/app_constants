@@ -54,6 +54,16 @@ describe "AppConstants" do
     AppConstants.environment = "playpen"
     expect { AppConstants.load! }.to raise_error(RuntimeError)
   end
+
+  it "should allow nested constants" do
+    AppConstants.config_path = "#{File.dirname(__FILE__)}/fixtures/template_constants.yml"
+    AppConstants.environment = "development"
+    AppConstants.load!
+
+    AppConstants.email.default_sender.should == "do-not-reply@test.com"
+    AppConstants.delayed_jobs.timeouts.default.should == 300
+    AppConstants.very.deep.nesting.level == true
+  end
   
   describe "#load!" do
 

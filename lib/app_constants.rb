@@ -24,7 +24,13 @@ class AppConstants
 
   def method_missing(method, *args)
     fail_if_constant_missing(method.to_s)
-    constants_hash[method.to_s].nil? ? "" : constants_hash[method.to_s].freeze
+    if constants_hash[method.to_s].nil?
+      ""
+    elsif constants_hash[method.to_s].is_a?(Hash)
+      AppConstants.new(constants_hash[method.to_s])
+    else
+      constants_hash[method.to_s].freeze
+    end
   end
 
   def fail_if_constant_missing(constant)
