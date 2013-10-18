@@ -5,17 +5,18 @@
 
 Gem::Specification.new do |s|
   s.name = "app_constants"
-  s.version = "1.0.4"
+  s.version = "1.0.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Leonardo Borges"]
-  s.date = "2012-02-13"
+  s.date = "2013-10-18"
   s.description = "A clean and simple way to manage your application's per-environment constants"
   s.email = "leonardoborges.rj@gmail.com"
   s.extra_rdoc_files = [
     "README.rdoc"
   ]
   s.files = [
+    ".ruby-version",
     "Gemfile",
     "Gemfile.lock",
     "MIT-LICENSE",
@@ -42,7 +43,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/leonardoborges/app_constants"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.10"
+  s.rubygems_version = "1.8.23"
   s.summary = "A clean and simple way to manage your application's per-environment constants"
   s.test_files = [
     "test/app_constants_spec.rb",
