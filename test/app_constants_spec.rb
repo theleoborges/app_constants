@@ -64,6 +64,18 @@ describe "AppConstants" do
     AppConstants.delayed_jobs.timeouts.default.should == 300
     AppConstants.very.deep.nesting.level == true
   end
+
+  it "should allow for inspection of config_path" do
+    expected_path = "#{File.dirname(__FILE__)}/fixtures/constants.yml"
+    AppConstants.config_path = expected_path
+    AppConstants.config_path.should == expected_path
+  end
+
+  it "should allow for inspection of environment" do
+    expected_env = "some-environment-#{rand(999)}"
+    AppConstants.environment = expected_env
+    AppConstants.environment.should == expected_env
+  end
   
   describe "#load!" do
 
