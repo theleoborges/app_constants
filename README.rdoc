@@ -108,4 +108,4 @@ Notice how I used embedded ruby code in the second constant. It works just fine:
 
 == Copyright
 
-Copyright (c) 2010-2011 {Leonardo Borges}[http://www.leonardoborges.com], released under the MIT license
+Copyright (c) 2010-2013 {Leonardo Borges}[http://www.leonardoborges.com], released under the MIT license
