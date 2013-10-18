@@ -5,11 +5,19 @@ class AppConstants
   @@config_path = Object.const_defined?(:Rails) ? "#{Rails.root}/config/constants.yml" : nil
   @@environment = Object.const_defined?(:Rails) ? Rails.env : 'test'
   @@raise_error_on_missing = false  # if true this will raise an error if method you seek isn't in constants_hash
-  
+
+  def self.config_path
+    @@config_path
+  end
+
   def self.config_path=(path)
     @@config_path = path
   end
-  
+
+  def self.environment
+    @@environment
+  end
+
   def self.environment=(environment)
     @@environment = environment
   end  
