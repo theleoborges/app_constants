@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{app_constants}
-  s.version = "1.0.3"
+  s.name = "app_constants"
+  s.version = "1.0.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Leonardo Borges"]
-  s.date = %q{2011-04-10}
-  s.description = %q{A clean and simple way to manage your application's per-environment constants}
-  s.email = %q{leonardoborges.rj@gmail.com}
+  s.date = "2012-02-13"
+  s.description = "A clean and simple way to manage your application's per-environment constants"
+  s.email = "leonardoborges.rj@gmail.com"
   s.extra_rdoc_files = [
     "README.rdoc"
   ]
@@ -31,6 +31,7 @@ Gem::Specification.new do |s|
     "lib/generators/templates/README",
     "lib/generators/templates/constants.yml",
     "lib/generators/templates/load_app_constants.rb",
+    "root",
     "test/app_constants_spec.rb",
     "test/fixtures/constants.yml",
     "test/fixtures/nested_constants.yml",
@@ -38,11 +39,11 @@ Gem::Specification.new do |s|
     "test/test_helper.rb",
     "uninstall.rb"
   ]
-  s.homepage = %q{http://github.com/leonardoborges/app_constants}
+  s.homepage = "http://github.com/leonardoborges/app_constants"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.5.0}
-  s.summary = %q{A clean and simple way to manage your application's per-environment constants}
+  s.rubygems_version = "1.8.10"
+  s.summary = "A clean and simple way to manage your application's per-environment constants"
   s.test_files = [
     "test/app_constants_spec.rb",
     "test/test_helper.rb"
