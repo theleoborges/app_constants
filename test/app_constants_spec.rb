@@ -76,6 +76,16 @@ describe "AppConstants" do
     AppConstants.environment = expected_env
     AppConstants.environment.should == expected_env
   end
+
+  it "should define respond_to_missing? for easier testing" do
+    AppConstants.config_path = "#{File.dirname(__FILE__)}/fixtures/constants.yml"
+    AppConstants.raise_error_on_missing = false
+    AppConstants.environment = "development"
+    AppConstants.load!
+
+    AppConstants.respond_to_missing?(:app_name).should == true
+    AppConstants.respond_to_missing?(:nope).should == false
+  end
   
   describe "#load!" do
 

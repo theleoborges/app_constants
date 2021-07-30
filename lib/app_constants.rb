@@ -67,6 +67,10 @@ class AppConstants
     template = File.open(@@config_path).read
     ERB.new(template).result
   end
+
+  def self.respond_to_missing?(method, private = false)
+    @@instance.constants_hash.keys.include?(method.to_s)
+  end
   
   attr_reader :constants_hash
   def initialize(constants_hash)
